@@ -11,6 +11,8 @@ public class Stringbuilder {
 		System.out.println("Enter the second string: ");
 		s2 = sc.nextLine();
 		
+		sc.close();
+		
 		StringBuilder sb = new StringBuilder();
 		System.out.print("The appended String is: ");
 		sb.append(s1).append(" ").append(s2);
