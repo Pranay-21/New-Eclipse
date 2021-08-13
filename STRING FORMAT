@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class StringFormat {
+
+	public static void main(String[] args) {
+		String name;
+		int id ;
+		String desc;
+		
+		Scanner sc = new Scanner(System.in);
+		id = sc.nextInt();
+		name = sc.next();
+		desc = sc.next();
+		
+		System.out.format("%-2d :%7s-%-6s", id, name, desc);
+		sc.close();
+	}
+}
