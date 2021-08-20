@@ -1,0 +1,38 @@
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class Application {
+
+	public static String[] vehicles = { "ambulance", "helicopter", "lifeboat" };
+	public static String[][] drivers = { { "pranay", "mahit", "padma" }, { "fam", "mahit", "padma", "pranay" },
+			{ "mahit", "padma", "fam" } };
+
+	public static void main(String[] args) {
+		Map<String, Set<String>> persons = new HashMap<>();
+		for (int i = 0; i < vehicles.length; i++) {
+			String vehicle = vehicles[i];
+			String[] driversList = drivers[i];
+
+			Set<String> driverSet = new LinkedHashSet<String>();
+
+			for (String driver : driversList) {
+				driverSet.add(driver);
+			}
+
+			persons.put(vehicle, driverSet);
+		}
+		for (int i = 0; i < vehicles.length; i++) {
+			
+			Set<String> driversList = persons.get(vehicles[i]);
+			
+			System.out.print(vehicles[i]+": ");
+			for (String driver : driversList) {
+				System.out.print(driver+" ");
+			}
+			System.out.println();
+		}
+	}
+
+}
