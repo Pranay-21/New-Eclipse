@@ -1,0 +1,62 @@
+
+public class Wait_Notify {
+	public static void main(String[] args) throws InterruptedException {
+
+		final Produce_Consume pro = new Produce_Consume();
+		Thread t1 = new Thread(new Runnable() {
+			public void run() {
+				try {
+					pro.producer();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		Thread t2 = new Thread(new Runnable() {
+			public void run() {
+				try {
+					pro.consumer();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		t1.start();
+		t2.start();
+		
+		t1.join();
+		t2.join();
+	}
+}
+
+/////////////////ANOTHER CLASS///////////////
+
+import java.util.Scanner;
+
+public class Produce_Consume {
+
+	public void producer() throws InterruptedException {
+		synchronized(this) {
+			System.out.println("Producer thread started running...");
+			wait();
+			System.out.println("Resumed");
+		}
+	}
+	
+	public void consumer() throws InterruptedException {
+		Thread.sleep(2000);
+		
+		Scanner sc = new Scanner(System.in);
+		synchronized(this) {
+			System.out.println("waiting for the return key..!");
+			sc.nextLine();
+			sc.close();
+			System.out.println("Return key pressed.");
+			notify();
+		}
+	}
+}
