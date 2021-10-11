@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Seperate0_1 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int c = 0;
+		System.out.println("Enter the length of the array: ");
+		int len = sc.nextInt();
+		int[] arr = new int[len];
+		System.out.println("Enter the binary values: ");
+		for (int i = 0; i < len; i++) {
+			arr[i] = sc.nextInt();
+		}
+		sc.close();
+		int[] arr0 = new int[len];
+		int[] arr1 = new int[len];
+
+		for (int i = 0; i < len; i++) {
+			if (arr[i] == 0) {
+				c++;
+				arr0[i] = arr[i];
+			}
+			else if (arr[i] == 1)
+				arr1[i] = arr[i];
+			else {
+				System.out.println("INVALID ENTRY");
+				return;
+			}
+		}
+		for (int o = 0; o < c; o++) {
+			if (arr0[o] == 0)
+				System.out.print(arr0[o] + " ");
+		}
+		System.out.println();
+		for (int o = 0; o < len; o++) {
+			if (arr1[o] == 1)
+				System.out.print(arr1[o] + " ");
+		}
+	}
+
+}
