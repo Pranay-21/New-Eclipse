@@ -12,6 +12,7 @@ public class ArrayLargestSmallest {
 		for (int i =0; i<len; i++) {
 			arr[i] = sc.nextInt();
 		}
+		sc.close();
 		Arrays.sort(arr);
 		System.out.println("SMALLEST: "+arr[0]);
 		System.out.println("LARGEST: "+arr[len-1]);
