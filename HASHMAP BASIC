@@ -1,0 +1,20 @@
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class HashmapBasic {
+
+	public static void main(String[] args) {
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("one", 1);
+		map.put("two", 2);
+		map.put("three", 3);
+		map.put("four", 4);
+		map.put("five", 5);
+		Set<Entry<String,Integer>> entry = map.entrySet();
+		
+		for(Entry<String, Integer> ele:entry) {
+			System.out.println(ele.getKey()+" : "+ele.getValue());
+		}
+	}
+}
